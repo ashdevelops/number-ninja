@@ -89,20 +89,20 @@ func main() {
 		fmt.Print("Guess a number between 1 and 100: ")
 		text, _ := reader.ReadString('\n')
 
-		i, err := strconv.Atoi(strings.Replace(text, "\n", "", -1))
+		input, err := strconv.Atoi(strings.Replace(text, "\n", "", -1))
 
 		if err != nil {
 			fmt.Println(err)
 			continue
 		}
 
-		if i == randomNumber {
+		if input == randomNumber {
 			success = true
 			break
-		} else if i < randomNumber {
+		} else if input < randomNumber {
 			fmt.Println("Higher\n")
 
-		} else if i > randomNumber {
+		} else if input > randomNumber {
 			fmt.Println("Lower\n")
 		}
 	}
