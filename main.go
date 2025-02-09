@@ -86,7 +86,12 @@ func main() {
 		tries++
 
 		reader := bufio.NewReader(os.Stdin)
-		fmt.Print("Guess a number between 1 and 100: ")
+
+		fmt.Printf(
+			"Guess a number between %d and %d: ",
+			levelPicked.randomMin,
+			levelPicked.randomMax)
+
 		text, _ := reader.ReadString('\n')
 
 		input, err := strconv.Atoi(strings.Replace(text, "\n", "", -1))
@@ -110,6 +115,6 @@ func main() {
 	if success {
 		fmt.Println("You won!")
 	} else {
-		fmt.Println("You ran out of tries")
+		fmt.Println("You ran out of tries! The number you were looking for was " + strconv.Itoa(randomNumber))
 	}
 }
